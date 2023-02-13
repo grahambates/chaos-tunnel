@@ -2,6 +2,7 @@ PROG=chaos-tunnel
 TIC=/Applications/tic80.app/Contents/MacOS/tic80
 TICOPTS=--skip
 PAK=pakettic
+TICTOOL=tic-tool
 ALG=dlas
 LEVEL=3
 TARGET=256
@@ -14,6 +15,9 @@ run:
 
 run-dist:
 	$(TIC) $(TICOPTS) $(PROG).tic
+
+analyze:
+	$(TICTOOL) analyze $(PROG).tic
 
 $(PROG).tic: $(PROG).lua
 	$(PAK) $(PAKOPTS) $< -o $@
